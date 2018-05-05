@@ -1,13 +1,13 @@
 import java.util.Scanner
 class RpsMain {
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         Random r = new Random()
         Scanner input = new Scanner(System.in)
         boolean isValidPlay = true
         def userPlay
         def computerPlay
-        boolean wantsToPlayAgain
+        boolean playAgain
         def decision = 'y'
 
         while({
@@ -27,13 +27,11 @@ class RpsMain {
                     !isValidPlay
             }()) continue
 
-
-
             //pick computer choice at random
-            int n = r.nextInt(30) + 1
-            if (n > 20) {
+            int n = r.nextInt(3) + 1
+            if (n > 2) {
                 computerPlay = 's'
-            } else if (n > 10) {
+            } else if (n > 1) {
                 computerPlay = 'p'
             } else {
                 computerPlay = 'r'
@@ -72,14 +70,12 @@ class RpsMain {
 
                 decision = input.next()
 
-
                 decision != 'y' && decision != 'n'
             }()) continue
 
-            wantsToPlayAgain = decision == 'y' ? true : false
+            playAgain = decision == 'y' ? true : false
 
-            wantsToPlayAgain
-
+            playAgain
         }()) continue
         println "Thanks for playing!"
     }
